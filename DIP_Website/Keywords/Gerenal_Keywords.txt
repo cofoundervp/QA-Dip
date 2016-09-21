@@ -12,4 +12,4 @@ Generate Email
     ${email_content}    Generate Random String    ${length}    [LOWER]
     ${email_domain}    Set Variable    .cvp@gmail.com
     ${email}    Catenate    SEPARATOR=    ${email_content}    ${email_domain}
-    [Return]    ${email2}
+    [Return]    ${email}
