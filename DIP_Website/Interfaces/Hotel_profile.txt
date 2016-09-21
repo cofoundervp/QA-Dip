@@ -1,0 +1,5 @@
+*** Settings ***
+Library           ExtendedSelenium2Library
+
+*** Variables ***
+${hp_submission_status_Pending}    //span[contains(text(),"Pending")]

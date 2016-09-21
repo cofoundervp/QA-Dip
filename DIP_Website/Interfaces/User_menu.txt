@@ -1,0 +1,3 @@
+*** Variables ***
+${um_user_pannel}    //li[@class="dropdown user user-menu"]
+${um_signout_button}    //a[contains(text(),"Sign out")]

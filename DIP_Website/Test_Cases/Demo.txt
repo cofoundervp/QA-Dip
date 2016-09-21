@@ -1,0 +1,68 @@
+*** Settings ***
+Library           ExtendedSelenium2Library
+Resource          ../Keywords/Gerenal_Keywords.txt
+Resource          ../Interfaces/Sign_in_page.txt
+Resource          ../Interfaces/Sign_up_page.txt
+Resource          ../Interfaces/Hotels_list_page.txt
+Resource          ../Interfaces/Hotel_profile.txt
+Resource          ../Interfaces/New_hotel_page.txt
+Resource          ../Interfaces/User_menu.txt
+
+*** Test Cases ***
+Verify that user is able to sign up with a valid email/password
+    Open DIP Website
+    Wait Until Element Is Visible    ${si_email_field}
+    Click Element    ${si_register_link}
+    Wait Until Element Is Visible    ${su_email_field}
+    ${email}    Generate Email    15
+    Input Text    ${su_email_field}    ${email}
+    ${fullname}    Generate Random String    7
+    Input Text    ${su_fullname_field}    ${fullname}
+    Input Text    ${su_password_field}    test123
+    Input Text    ${su_confirmpassword_field}    test123
+    Click Element    ${su_register_button}
+    Wait Until Element Is Visible    ${hl_create_new_button}
+
+Verify that user is able to log in with a valid email/password
+    Open DIP Website
+    Wait Until Element Is Visible    ${si_email_field}
+    Input Text    ${si_email_field}    hieu.tran456@yopmail.com
+    Input Text    ${si_password_field}    hieu456
+    Click Element    ${si_login_button}
+
+Verify that user is NOT able to log in with an invalid email
+    Open DIP Website
+    Wait Until Element Is Visible    ${si_email_field}
+    Input Text    ${si_email_field}    test
+    Input Text    ${si_password_field}    test123
+    Click Element    ${si_login_button}
+    Element Should Be Visible    ${si_email_error}
+
+Verify that user is NOT able to sign up with an invalid email.
+    Open DIP Website
+    Wait Until Element Is Visible    ${si_email_field}
+    Click Element    ${si_register_link}
+    Wait Until Element Is Visible    ${su_email_field}
+    Input Text    ${su_email_field}    Hieu
+    Input Text    ${su_fullname_field}    Hieu Tran
+    Input Text    ${su_password_field}    test123
+    Input Text    ${su_confirmpassword_field}    test123
+    Click Element    ${su_register_button}
+    Element Should Be Visible    ${su_email_error}
+
+Verify that user is able to add Hotel information
+
+Verify that user is able to update Hotel information
+
+Verify that user is able to delete Hotel
+
+Verify that user is able to sign out.
+    Open DIP Website
+    Wait Until Element Is Visible    ${si_email_field}
+    Input Text    ${si_email_field}    hieu.tran123@yopmail.com
+    Input text    ${si_password_field}    hieu123
+    Click Element    ${si_login_button}
+    Wait Until Element Is Visible    ${um_user_pannel}
+    Click Element    ${um_user_pannel}
+    Click Element    ${um_signout_button}
+    Element Should Be Visible    ${si_email_field}

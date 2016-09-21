@@ -1,0 +1,15 @@
+*** Settings ***
+Library           ExtendedSelenium2Library
+Library           String
+
+*** Keywords ***
+Open DIP Website
+    Open Browser    http://dev.dip.cvp.io:8000/    ff
+    Maximize Browser Window
+
+Generate Email
+    [Arguments]    ${length}
+    ${email_content}    Generate Random String    ${length}    [LOWER]
+    ${email_domain}    Set Variable    .cvp@gmail.com
+    ${email}    Catenate    SEPARATOR=    ${email_content}    ${email_domain}
+    [Return]    ${email}

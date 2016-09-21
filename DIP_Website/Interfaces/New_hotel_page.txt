@@ -1,0 +1,8 @@
+*** Settings ***
+Library           ExtendedSelenium2Library
+
+*** Variables ***
+${nh_hotel_name}    //input[@placeholder="Hotel Name"]
+${nh_hotel_address}    //input[@placeholder="Address"]
+${nh_upload_button}    //button[@class="btn btn-info center-block ng-binding"]
+${nh_add_button}    //button[@class="btn btn-info ng-binding ng-scope"]

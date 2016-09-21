@@ -1,0 +1,10 @@
+*** Settings ***
+Library           ExtendedSelenium2Library
+
+*** Variables ***
+${su_email_field}    //input[@placeholder="Email"]
+${su_fullname_field}    //input[@placeholder="Full name"]
+${su_password_field}    //input[@placeholder="Password"]
+${su_confirmpassword_field}    //input[@placeholder="Confirm password"]
+${su_register_button}    //button[@type='submit']
+${su_email_error}    //li[contains(text(),"Invalid email")]

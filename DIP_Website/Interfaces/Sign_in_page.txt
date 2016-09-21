@@ -1,0 +1,10 @@
+*** Settings ***
+Library           ExtendedSelenium2Library
+
+*** Variables ***
+${si_email_field}    //input[@type='email']
+${si_password_field}    //input[@type='password']
+${si_login_button}    //button[@type='submit']
+${si_email_error}    //li[contains(text(),'Invalid email')]
+${si_register_link}    //a[contains(text(),'Register a new DIP Partner')]
+${si_forgotpassword_link}    //a[contains(text(),'I forgot my password')]

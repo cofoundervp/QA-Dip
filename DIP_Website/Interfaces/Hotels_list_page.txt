@@ -1,0 +1,3 @@
+*** Variables ***
+${hl_create_new_button}    //a[@class="btn btn-info dip-btn-app ng-binding ng-scope"]
+${hl_view_hotelprofile_button}    //button[@class="btn btn-default"]
